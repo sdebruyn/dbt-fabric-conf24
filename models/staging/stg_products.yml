@@ -4,6 +4,6 @@ models:
     columns:
       - name: product_id
         description: The unique key for each product.
-        data_tests:
+        tests:
           - not_null
           - unique

@@ -2,11 +2,11 @@ models:
   - name: order_items
     columns:
       - name: order_item_id
-        data_tests:
+        tests:
           - not_null
           - unique
       - name: order_id
-        data_tests:
+        tests:
           - relationships:
               to: ref('orders')
               field: order_id
