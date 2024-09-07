@@ -1,0 +1,23 @@
+sources:
+  - name: shopping_system
+    schema: dbo
+    tables:
+      - name: customers
+        columns:
+          - name: ID
+            tests:
+              - unique
+              - not_null
+      - name: orders
+        columns:
+          - name: ID
+            tests:
+              - unique
+              - not_null
+      - name: payments
+        columns:
+          - name: ID
+            tests:
+              - unique
+              - not_null
+      - name: supplies
