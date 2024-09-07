@@ -1,6 +1,6 @@
 with src as (
     select *
-    from {{ source('shopping_system', 'supplies') }}
+    from {{ source('ecom', 'raw_supplies') }}
 ),
 
 renamed as (
