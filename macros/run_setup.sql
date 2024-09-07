@@ -23,11 +23,9 @@
 
         create table raw.items
         (
-            sku varchar(8000),
-            name varchar(8000),
-            type varchar(8000),
-            price int,
-            description varchar(8000)
+            id varchar(8000),
+            order_id varchar(8000),
+            sku varchar(8000)
         );
 
         create table raw.orders

@@ -20,22 +20,12 @@ order_items_summary as (
         sum(supply_cost) as order_cost,
         sum(product_price) as order_items_subtotal,
         count(order_item_id) as count_order_items,
-        sum(
-            case
-                when is_food_item then 1
-                else 0
-            end
-        ) as count_food_items,
-        sum(
-            case
-                when is_drink_item then 1
-                else 0
-            end
-        ) as count_drink_items
+        sum(is_food_item) as count_food_items,
+        sum(is_drink_item) as count_drink_items
 
     from order_items
 
-    group by 1
+    group by order_id
 
 ),
 
@@ -49,8 +39,13 @@ compute_booleans as (
         order_items_summary.count_food_items,
         order_items_summary.count_drink_items,
         order_items_summary.count_order_items,
-        order_items_summary.count_food_items > 0 as is_food_order,
-        order_items_summary.count_drink_items > 0 as is_drink_order
+        {% for type in ["food", "drink"] %}
+        case
+            when order_items_summary.count_{{ type }}_items > 0 then 1
+            else 0
+        end as is_{{ type }}_order
+        {% if not loop.last %},{% endif %}
+        {% endfor %}
 
     from orders
 

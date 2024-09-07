@@ -1,4 +1,22 @@
-name: 'my_new_project'
+name: 'dbt_fabric_demo_sam_debruyn'
 version: '1.0.0'
 config-version: 2
 profile: 'default'
+
+vars:
+  "dbt_date:time_zone": "W. Europe Standard Time"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['tsql_utils', 'dbt_utils']
+  - macro_namespace: dbt_date
+    search_order: ['tsql_utils', 'dbt_date']
+  - macro_namespace: dbt_expectations
+    search_order: ['tsql_utils', 'dbt_expectations']
+  - macro_namespace: audit_helper
+    search_order: ['tsql_utils', 'audit_helper']
+
+
+models:
+  marts:
+    +materialized: table

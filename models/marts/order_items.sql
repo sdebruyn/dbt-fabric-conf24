@@ -34,7 +34,7 @@ order_supplies_summary as (
 
     from supplies
 
-    group by 1
+    group by product_id
 
 ),
 

@@ -18,7 +18,10 @@ customer_orders_summary as (
         orders.customer_id,
 
         count(distinct orders.order_id) as count_lifetime_orders,
-        count(distinct orders.order_id) > 1 as is_repeat_buyer,
+        case
+            when count(distinct orders.order_id) > 1 then 1
+            else 0
+        end as is_repeat_buyer,
         min(orders.ordered_at) as first_ordered_at,
         max(orders.ordered_at) as last_ordered_at,
         sum(orders.subtotal) as lifetime_spend_pretax,
@@ -27,7 +30,7 @@ customer_orders_summary as (
 
     from orders
 
-    group by 1
+    group by orders.customer_id
 
 ),
 
@@ -44,7 +47,7 @@ joined as (
         customer_orders_summary.lifetime_spend,
 
         case
-            when customer_orders_summary.is_repeat_buyer then 'returning'
+            when customer_orders_summary.is_repeat_buyer > 0 then 'returning'
             else 'new'
         end as customer_type
 
