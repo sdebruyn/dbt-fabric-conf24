@@ -16,6 +16,8 @@ dispatch:
   - macro_namespace: audit_helper
     search_order: ['tsql_utils', 'audit_helper']
 
+snapshots:
+  target_schema: dbt_snap
 
 models:
   dbt_fabric_demo_sam_debruyn:
