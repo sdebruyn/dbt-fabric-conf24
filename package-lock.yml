@@ -4,5 +4,5 @@ packages:
 - package: calogica/dbt_date
   version: 0.10.1
 - package: dbt-msft/tsql_utils
-  version: 1.0.0
-sha1_hash: e8bcdc1a1ab5ef18001418ec6a5b4f76c1b37916
+  version: 1.1.0
+sha1_hash: d82b8e97e22278a2b81e8de767eb5ce2dc88cf02
