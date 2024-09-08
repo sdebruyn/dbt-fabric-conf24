@@ -24,4 +24,4 @@ snapshots:
 models:
   dbt_fabric_demo_sam_debruyn:
     marts:
-      +materialized: table # should be table once dbt Cloud fixes their adapter version
+      +materialized: view # should be table once dbt Cloud fixes their adapter version
