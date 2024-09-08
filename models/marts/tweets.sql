@@ -1,16 +1,6 @@
-{{
-    config(
-        materialized='incremental'
-    )
-}}
-
 with tweets as (
     select *
     from {{ ref('stg_tweets') }}
-
-    {% if is_incremental() %}
-        where tweeted_at >= (select coalesce(max(most_recent),'1900-01-01') from {{ this }} )
-    {% endif %}
 ),
 
 dates as (

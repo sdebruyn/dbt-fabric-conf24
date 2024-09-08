@@ -1,0 +1,11 @@
+default:
+  target: fabric
+  outputs:
+    fabric:
+      type: fabric
+      driver: "ODBC Driver 18 for SQL Server"
+      host: m7awjeefjdxubhzudbjsdcxkqy-uwanr25hkxkehd7qpwlaluhgki.datawarehouse.fabric.microsoft.com
+      authentication: CLI
+      database: dwh
+      schema: dbtc_sam
+      threads: 8
