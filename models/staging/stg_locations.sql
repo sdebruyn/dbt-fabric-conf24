@@ -6,6 +6,13 @@ source as (
 
 ),
 
+casted as (
+    select
+        *,
+        cast(opened_at as datetime2(6)) as opened_at_date
+    from source
+),
+
 renamed as (
 
     select
@@ -20,9 +27,9 @@ renamed as (
         tax_rate,
 
         ---------- timestamps
-        {{ dbt.date_trunc('day', 'opened_at') }} as opened_date
+        {{ dbt.date_trunc('day', 'opened_at_date') }} as opened_date
 
-    from source
+    from casted
 
 )
 

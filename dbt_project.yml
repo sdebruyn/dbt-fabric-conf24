@@ -6,6 +6,8 @@ profile: 'default'
 vars:
   "dbt_date:time_zone": "W. Europe Standard Time"
 
+test-paths: ["tests"]
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['tsql_utils', 'dbt_utils']
