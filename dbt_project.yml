@@ -18,5 +18,6 @@ dispatch:
 
 
 models:
-  marts:
-    +materialized: table
+  dbt_fabric_demo_sam_debruyn:
+    marts:
+      +materialized: view # should be table once dbt Cloud fixes their adapter version

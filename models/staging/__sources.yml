@@ -28,3 +28,6 @@ sources:
       - name: raw_supplies
         identifier: supplies
         description: One record per supply per SKU of items sold in stores
+      - name: raw_tweets
+        identifier: tweets
+        description: Tweets submitted by our customers

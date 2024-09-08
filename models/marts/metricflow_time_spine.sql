@@ -1,7 +1,4 @@
--- metricflow_time_spine.sql
-with
-
-days as (
+with days as (
 
     select * from {{ ref('date_spine') }}
 
@@ -15,4 +12,5 @@ cast_to_date as (
 
 )
 
-select * from cast_to_date
+select *
+from cast_to_date
