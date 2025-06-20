@@ -7,17 +7,17 @@ vars:
   "dbt_date:time_zone": "W. Europe Standard Time"
 
 dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['tsql_utils', 'dbt_utils']
-  - macro_namespace: dbt_date
-    search_order: ['tsql_utils', 'dbt_date']
   - macro_namespace: dbt_expectations
-    search_order: ['tsql_utils', 'dbt_expectations']
+    search_order: ['dbt', 'dbt_expectations']
   - macro_namespace: audit_helper
-    search_order: ['tsql_utils', 'audit_helper']
+    search_order: ['dbt', 'audit_helper']
+  - macro_namespace: dbt_utils
+    search_order: ['dbt', 'dbt_utils']
+  - macro_namespace: dbt_date
+    search_order: ['dbt', 'dbt_date']
 
 snapshots:
-  target_schema: dbt_snap
+  target_schema: "{{ target.schema}}_snap"
 
 models:
   dbt_fabric_demo_sam_debruyn:
