@@ -17,23 +17,23 @@
 
         create table raw.customers
         (
-            id varchar(8000),
-            name varchar(8000)
+            id varchar(max),
+            name varchar(max)
         );
 
         create table raw.items
         (
-            id varchar(8000),
-            order_id varchar(8000),
-            sku varchar(8000)
+            id varchar(max),
+            order_id varchar(max),
+            sku varchar(max)
         );
 
         create table raw.orders
         (
-            id varchar(8000),
-            customer varchar(8000),
-            ordered_at varchar(8000),
-            store_id varchar(8000),
+            id varchar(max),
+            customer varchar(max),
+            ordered_at varchar(max),
+            store_id varchar(max),
             subtotal int,
             tax_paid int,
             order_total int
@@ -41,44 +41,44 @@
 
         create table raw.products
         (
-            sku varchar(8000),
-            name varchar(8000),
-            type varchar(8000),
+            sku varchar(max),
+            name varchar(max),
+            type varchar(max),
             price int,
-            description varchar(8000)
+            description varchar(max)
         );
 
         create table raw.stores
         (
-            id varchar(8000),
-            name varchar(8000),
-            opened_at varchar(8000),
+            id varchar(max),
+            name varchar(max),
+            opened_at varchar(max),
             tax_rate decimal(18,4)
         );
 
         create table raw.supplies
         (
-            id varchar(8000),
-            name varchar(8000),
+            id varchar(max),
+            name varchar(max),
             cost int,
-            perishable varchar(8000),
-            sku varchar(8000)
+            perishable varchar(max),
+            sku varchar(max)
         );
 
         create table raw.tweets
         (
-            id varchar(8000),
-            user_id varchar(8000),
+            id varchar(max),
+            user_id varchar(max),
             tweeted_at date,
-            content varchar(8000)
+            content varchar(max)
         );
 
         create table raw.tweets_preload
         (
-            id varchar(8000),
-            user_id varchar(8000),
+            id varchar(max),
+            user_id varchar(max),
             tweeted_at date,
-            content varchar(8000)
+            content varchar(max)
         );
 
         copy into raw.customers

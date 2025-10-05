@@ -21,5 +21,10 @@ snapshots:
 
 models:
   dbt_fabric_demo_sam_debruyn:
+    staging:
+      +docs:
+        node_color: "#cd7f32"
     marts:
+      +docs:
+        node_color: gold
       +materialized: table
